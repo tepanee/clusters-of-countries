@@ -10,7 +10,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = F, message = F)
 options(scipen = 11111)
-pander::panderOptions('knitr.auto.asis', TRUE)
+# pander::panderOptions('knitr.auto.asis', TRUE)
 
 ```
 
@@ -67,6 +67,7 @@ library(gganimate) #animating plot
 library(data.table)
 library(pander)
 library(DT)
+library(descr)
 ``` 
 
 ## Data Importing
@@ -88,7 +89,7 @@ str(mortal_total)
 
 * In the chunk below we're going to remove the last 2 variables and filter the year, we only need the 2015 data to interpret the latest condition of each country.
 
-```{r}
+```{r,results='asis'}
 mortal_lastyears <- mortal_total %>% 
   select(-c(X.3,X.4)) %>% 
   filter(X == 2015) %>% 
