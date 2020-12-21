@@ -78,42 +78,42 @@ Assume that we are going to classify countries listed based on the indicators co
 
 
 ```
-## 
-## 
-## | Code |            Country            | year | inf.mort | life.exp.both |
-## |:----:|:-----------------------------:|:----:|:--------:|:-------------:|
-## |  1   | Total, all countries or areas | 2015 |    35    |     70.8      |
-## | 100  |           Bulgaria            | 2015 |   8.3    |     74.3      |
-## | 104  |            Myanmar            | 2015 |    45    |      66       |
-## | 108  |            Burundi            | 2015 |   77.9   |     56.1      |
-## |  11  |        Western Africa         | 2015 |   70.5   |     54.7      |
-## | 112  |            Belarus            | 2015 |   3.6    |     72.1      |
-## 
-## Table: Table continues below
-## 
-##  
-## 
-## | life.exp.female | life.exp.male | maternal.mortality.ratio | pop.increase |
-## |:---------------:|:-------------:|:------------------------:|:------------:|
-## |      73.1       |     68.6      |           216            |     1.2      |
-## |      77.8       |     70.8      |            11            |     -0.6     |
-## |      68.3       |     63.7      |           178            |     0.9      |
-## |       58        |     54.2      |           712            |      3       |
-## |      55.6       |     53.9      |            NA            |     2.7      |
-## |      77.7       |     66.5      |            4             |      0       |
-## 
-## Table: Table continues below
-## 
-##  
-## 
-## | tot.fertil.rate |
-## |:---------------:|
-## |       2.5       |
-## |       1.5       |
-## |       2.3       |
-## |        6        |
-## |       5.5       |
-## |       1.6       |
+
+
+| Code |            Country            | year | inf.mort | life.exp.both |
+|:----:|:-----------------------------:|:----:|:--------:|:-------------:|
+|  1   | Total, all countries or areas | 2015 |    35    |     70.8      |
+| 100  |           Bulgaria            | 2015 |   8.3    |     74.3      |
+| 104  |            Myanmar            | 2015 |    45    |      66       |
+| 108  |            Burundi            | 2015 |   77.9   |     56.1      |
+|  11  |        Western Africa         | 2015 |   70.5   |     54.7      |
+| 112  |            Belarus            | 2015 |   3.6    |     72.1      |
+
+Table: Table continues below
+
+
+
+| life.exp.female | life.exp.male | maternal.mortality.ratio | pop.increase |
+|:---------------:|:-------------:|:------------------------:|:------------:|
+|      73.1       |     68.6      |           216            |     1.2      |
+|      77.8       |     70.8      |            11            |     -0.6     |
+|      68.3       |     63.7      |           178            |     0.9      |
+|       58        |     54.2      |           712            |      3       |
+|      55.6       |     53.9      |            NA            |     2.7      |
+|      77.7       |     66.5      |            4             |      0       |
+
+Table: Table continues below
+
+
+
+| tot.fertil.rate |
+|:---------------:|
+|       2.5       |
+|       1.5       |
+|       2.3       |
+|        6        |
+|       5.5       |
+|       1.6       |
 ```
 
 ```
