@@ -63,6 +63,7 @@ library(corrplot) # Creating correlation plot
 library(countrycode) #generating continent variable from country code
 library(gganimate) #animating plot
 library(data.table)
+library(pander)
 library(DT)
 ``` 
 
@@ -125,11 +126,10 @@ mortal_lastyears <- mortal_total %>%
 # data.table(head(mortal_lastyears)) %>% 
 #   pandoc.table(style = "grid")
 # 
-# data.table(head(mortal_lastyears)) %>% 
-#   pandoc.table(style = "rmarkdown")
+data.table(head(mortal_lastyears)) %>%
+  pandoc.table(style = "rmarkdown")
 
-data.table(head(mortal_lastyears)) %>% 
-  DT::datatable()
+data.table(head(mortal_lastyears))
 ```
 
 `Country` = Country list ;<br />
