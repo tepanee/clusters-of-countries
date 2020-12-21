@@ -10,6 +10,8 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = F, message = F)
 options(scipen = 11111)
+pander::panderOptions('knitr.auto.asis', TRUE)
+
 ```
 
 # Clusters of Countries {.tabset}
