@@ -295,19 +295,11 @@ g <- ggplot(mortal_lastyears, aes(life.exp.both, inf.mort, text = rownames(morta
   geom_jitter(aes(col = Continent)) +
   geom_smooth(aes(group = 1), method = loess)+
   theme_classic()
+# ggplotly(g)
 
-g <- ggplotly(g)
-htmlwidgets::saveWidget(g,file.path(getwd(), "html_plot/g.html"))
-htmltools::tags$iframe(
-  src=file.path("html_plot/g.html"),
-  width="100%",
-  height="600",
-  scrolling="no",
-  seamless="seamless",
-  frameBorder="0"
-)
+ggsave("html_plot/g.png", plot = g,width = 8, height=5)
 ```
-{% include html_plot/g.html %}
+![](html_plot/g.png)
 
 ```{r}
 g6 <- ggplot(mortal_lastyears, aes(life.exp.both, pop.increase, text = rownames(mortal_lastyears))) +
@@ -315,24 +307,37 @@ g6 <- ggplot(mortal_lastyears, aes(life.exp.both, pop.increase, text = rownames(
   geom_smooth(aes(group = 1), method = loess)+
   theme_classic()
 
-ggplotly(g6)
+# ggplotly(g6)
+ggsave("html_plot/g6.png", plot = g6,width = 8, height=5)
+
 ```
+![](html_plot/g6.png)
+
+
 ```{r}
 g7 <- ggplot(mortal_lastyears, aes(life.exp.both, maternal.mortality.ratio.avg, text = rownames(mortal_lastyears))) +
   geom_jitter(aes(col = Continent)) +
   geom_smooth(aes(group = 1), method = loess)+
   theme_classic()
 
-ggplotly(g7)
+# ggplotly(g7)
+ggsave("html_plot/g7.png", plot = g7,width = 8, height=5)
+
 ```
+![](html_plot/g7.png)
+
 ```{r}
 g8 <- ggplot(mortal_lastyears, aes(life.exp.both, tot.fertil.rate, text = rownames(mortal_lastyears))) +
   geom_jitter(aes(col = Continent)) +
   geom_smooth(aes(group = 1), method = loess)+
   theme_classic()
 
-ggplotly(g8)
+# ggplotly(g8)
+ggsave("html_plot/g8.png", plot = g8,width = 8, height=5)
+
 ```
+![](html_plot/g8.png)
+
 <br />
 * Africa dominates the low life expectantion area but Europe are mostly on the high area of life expectancy . The rest are spread from the middle to the high.
 
@@ -349,16 +354,22 @@ g1 <- ggplot(mortal_lastyears, aes(tot.fertil.rate,life.exp.both, text = rowname
   geom_smooth(method = loess, aes(group = 1))+
   theme_classic()
 
-ggplotly(g1)
+# ggplotly(g1)
+ggsave("html_plot/g1.png", plot = g1,width = 8, height = 5)
 ```
+![](html_plot/g1.png)
+
 ```{r}
 g2 <- ggplot(mortal_lastyears, aes(tot.fertil.rate,inf.mort, text = rownames(mortal_lastyears))) + 
   geom_jitter(aes(col = Continent)) +
   geom_smooth(method = loess, aes(group = 1))+
   theme_classic()
 
-ggplotly(g2)
+# ggplotly(g2)
+ggsave("html_plot/g2.png", plot = g2,width = 8, height = 5)
+
 ```
+![](html_plot/g2.png)
 
 
 ```{r}
@@ -367,8 +378,14 @@ g3 <- ggplot(mortal_lastyears, aes(tot.fertil.rate,maternal.mortality.ratio, tex
   geom_smooth(method = loess, aes(group = 1))+
   theme_classic()
 
-ggplotly(g3)
+# ggplotly(g3)
+ggsave("html_plot/g3.png", plot = g3,width = 8, height = 5)
+
+
 ```
+![](html_plot/g3.png)
+
+
 <br />
 * Africa dominates the area which total fertility rate is high, means that Africans are "productive".
 
@@ -384,17 +401,25 @@ g4 <- ggplot(mortal_lastyears, aes(pop.increase,inf.mort, text = rownames(mortal
   geom_jitter(aes(col = Continent)) +
   geom_smooth(method = loess, aes(group = 1))+
   theme_classic()
+ggsave("html_plot/g4.png", plot = g4,width = 8, height = 5)
 
-ggplotly(g4)
+# ggplotly(g4)
 ```
+![](html_plot/g4.png)
+
+
 ```{r}
 g5 <- ggplot(mortal_lastyears, aes(pop.increase,tot.fertil.rate, text = rownames(mortal_lastyears))) + 
   geom_jitter(aes(col = Continent)) +
   geom_smooth(method = loess, aes(group = 1))+
   theme_classic()
 
-ggplotly(g5)
+# ggplotly(g5)
+ggsave("html_plot/g5.png", plot = g5,width = 8, height = 5)
+
 ```
+![](html_plot/g5.png)
+
 <br />
 * Europe has low infant mortality number but also low population increase which is rational i think.
 
@@ -580,10 +605,12 @@ po <- ggplot(mortal_pr_c2, aes(PC1,PC2, text = text ))+
   geom_vline(aes(xintercept=0), size=.2, alpha = 0.5, linetype = 2)+
   geom_point(aes(col = clust, pch = continent)) +
   theme_classic()
+ggsave("html_plot/po.png", plot = po,width = 8, height = 5)
 
-ggplotly(po, tooltip = 'text')
+# ggplotly(po, tooltip = 'text')
 
 ```
+![](html_plot/po.png)
 <br />
 When we divide the data into 2 clusters, we can conclude that the **cluster 1** is : 
 
@@ -661,14 +688,18 @@ mortal_pr_c3 <- mortal_pr_c3 %>%
                       tot.fertil.rate :', mortal_lastyears$tot.fertil.rate))
 
 
-po <- ggplot(mortal_pr_c3, aes(PC1,PC2, text = text ))+
+po2 <- ggplot(mortal_pr_c3, aes(PC1,PC2, text = text ))+
   geom_hline(aes(yintercept=0), size=.2, alpha = 0.5, linetype = 2) + 
   geom_vline(aes(xintercept=0), size=.2, alpha = 0.5, linetype = 2)+
   geom_point(aes(col = clust, pch = continent)) +
   theme_classic()
 
-ggplotly(po, tooltip = 'text')
+ggsave("html_plot/po2.png", plot = po2,width = 8, height = 5)
+
+
+# ggplotly(po, tooltip = 'text')
 ```
+![](html_plot/po2.png)
 
 <br />
 

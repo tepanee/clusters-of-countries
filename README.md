@@ -35,7 +35,6 @@ We have some variables from the data, and they are :
 
 Assume that we are going to classify countries listed based on the indicators contained in the data. 
 ![](2clust.gif)
-![](html_plot/g.html)
 ![](html_plot/g.png)
 
 
