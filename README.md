@@ -34,6 +34,7 @@ We have some variables from the data, and they are :
 ## The Goal
 
 Assume that we are going to classify countries listed based on the indicators contained in the data. 
+![](2clust.gif)
 
 ##  The Flow 
 
