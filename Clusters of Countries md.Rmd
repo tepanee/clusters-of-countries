@@ -159,7 +159,8 @@ na_check <- mortal_lastyears %>%
   rownames_to_column("column")
 
 na_check %>% 
-  datatable()
+  data.table() %>% 
+  kable()
 
 ```
 There are so many NAs in the data, it means that not all country listed have the data we need.
@@ -186,7 +187,8 @@ mortal_lastyears <- mortal_lastyears %>%
          tot.fertil.rate = replace_na(tot.fertil.rate,tot.fertil.rate.avg))
 
 head(mortal_lastyears) %>% 
-  datatable()
+  data.table() %>% 
+  kable()
 ```
 <br />
 There is an odd thing on the data as we replace the NA with the average number of each column. There are some rows/countries which have no observation value or only have 1 or 2 value for their indicator and we have filled them with the average values and it's not supposed to be like that. We supposed to eliminate them.
@@ -229,7 +231,8 @@ mortal_lastyears$Continent <- countrycode(sourcevar = mortal_lastyears[,"Country
 mortal_lastyears %>% 
   select(Country,Continent) %>% 
   head() %>% 
-  datatable()
+  data.table() %>% 
+  kable()
 
 ```
 <br />
@@ -244,7 +247,8 @@ mortal_lastyears <- mortal_lastyears %>%
 mortal_lastyears %>% 
   filter(Continent == "?") %>% 
   select(Country, Continent) %>% 
-  datatable()
+  data.table() %>% 
+  kable()
 
 mortal_lastyears <- mortal_lastyears %>% 
   filter(Continent != "?") %>% 
@@ -256,7 +260,8 @@ mortal_lastyears <- mortal_lastyears %>%
 ```{r}
 mortal_lastyears <- column_to_rownames(mortal_lastyears,"Country")
 
-datatable(head(mortal_lastyears))
+data.table(head(mortal_lastyears)) %>% 
+  kable()
 ```
 <br />
 Now the data is ready to be proceed.
@@ -440,7 +445,8 @@ If we divide the data into two clusters, the composition of each cluster would b
 table(mortal_cluster2$cluster) %>% 
   as.data.frame() %>% 
   rename("Cluster"= "Var1") %>% 
-  datatable()
+  data.table() %>% 
+  kable()
 ```
 <br />
 But if we divide the data into three clusters, the composition of each cluster would be:
@@ -448,7 +454,8 @@ But if we divide the data into three clusters, the composition of each cluster w
 table(mortal_cluster3$cluster) %>% 
     as.data.frame() %>% 
   rename("Cluster"= "Var1") %>% 
-  datatable()
+  data.table() %>% 
+  kable()
 ```
 
 <br />
@@ -463,7 +470,8 @@ mortal_lastyears %>%
   rownames_to_column("Country") %>% 
   rename("2-Clusters" = clust2,
          "3-Clusters" = clust3) %>% 
-  datatable()
+  data.table() %>% 
+  kable()
 ```
 <br />
 
@@ -479,7 +487,8 @@ mortal_pca_pr <- prcomp(mortal_lastyears_scaled)
 mortal_pca$eig %>% 
   as.data.frame() %>% 
   rownames_to_column("Dimension") %>% 
-  datatable()
+  data.table() %>% 
+  kable()
 ```
 <br />
 ```{r}
@@ -831,14 +840,14 @@ str(mortal_allyears_clust)
 * 2 Clusters
 
 ```{r}
-# two_clust <- ggplot(mortal_allyears_clust, aes(-PC1,-PC2)) +
-#   geom_hline(aes(yintercept=0), size=.2, alpha = 0.8, linetype = 2) + 
-#   geom_vline(aes(xintercept=0), size=.2, alpha = 0.8, linetype = 2)+
-#   geom_point(aes(col = clust2, pch = Continent))+
-#   theme_classic() +
-#  transition_time(year,range = c(2005,2015))
-# 
-# anim_save("2clust.gif", two_clust)
+two_clust <- ggplot(mortal_allyears_clust, aes(-PC1,-PC2)) +
+  geom_hline(aes(yintercept=0), size=.2, alpha = 0.8, linetype = 2) +
+  geom_vline(aes(xintercept=0), size=.2, alpha = 0.8, linetype = 2)+
+  geom_point(aes(col = clust2, pch = Continent))+
+  theme_classic() +
+ transition_time(year,range = c(2005,2015))
+
+anim_save("2clust.gif", two_clust)
 ```
 
 ![](2clust.gif)
@@ -846,14 +855,14 @@ str(mortal_allyears_clust)
 Some countries are moving from cluster 1 to cluster 2.  
 
 ```{r}
-#  three_clust <- ggplot(mortal_allyears_clust, aes(PC1,PC2)) +
-#   geom_hline(aes(yintercept=0), size=.2, alpha = 0.8, linetype = 2) + 
-#   geom_vline(aes(xintercept=0), size=.2, alpha = 0.8, linetype = 2) +
-#   geom_point(aes(col = clust3, pch = Continent))+
-#   theme_classic() +
-#   transition_time(year,range = c(2005,2015))
-# 
-# anim_save("3clust.gif", three_clust)
+ three_clust <- ggplot(mortal_allyears_clust, aes(PC1,PC2)) +
+  geom_hline(aes(yintercept=0), size=.2, alpha = 0.8, linetype = 2) +
+  geom_vline(aes(xintercept=0), size=.2, alpha = 0.8, linetype = 2) +
+  geom_point(aes(col = clust3, pch = Continent))+
+  theme_classic() +
+  transition_time(year,range = c(2005,2015))
+
+anim_save("3clust.gif", three_clust)
 
 ```
 ![](3clust.gif)
@@ -870,7 +879,6 @@ fviz_pca_var(mortal_pca_pr) #the 2015 data
 ```
 <br />
 They're flipped 180 degrees for each arrow, so the information gained from animated plot is still valid anyway.
-
 
 <br />
 
