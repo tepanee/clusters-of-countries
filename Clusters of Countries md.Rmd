@@ -307,6 +307,8 @@ htmltools::tags$iframe(
   frameBorder="0"
 )
 ```
+{% include html_plot/g.html %}
+
 ```{r}
 g6 <- ggplot(mortal_lastyears, aes(life.exp.both, pop.increase, text = rownames(mortal_lastyears))) +
   geom_jitter(aes(col = Continent)) +
