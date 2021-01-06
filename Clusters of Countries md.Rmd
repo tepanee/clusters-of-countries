@@ -67,7 +67,7 @@ library(gganimate) #animating plot
 library(data.table)
 library(pander)
 library(DT)
-library(descr)
+library(kableExtra)
 ``` 
 
 ## Data Importing
@@ -126,13 +126,15 @@ mortal_lastyears <- mortal_total %>%
 # data.table(head(mortal_lastyears)) %>% 
 #   pandoc.table(style = "simple")
 # 
-# data.table(head(mortal_lastyears)) %>% 
+# data.table(head(mortal_lastyears)) %>%
 #   pandoc.table(style = "grid")
 # 
-data.table(head(mortal_lastyears)) %>%
-  pandoc.table(style = "rmarkdown")
+# data.table(head(mortal_lastyears)) %>%
+#   pandoc.table(style = "rmarkdown")
 
-data.table(head(mortal_lastyears))
+data.table(head(mortal_lastyears)) %>%
+  kable()
+# data.table(head(mortal_lastyears))
 ```
 
 `Country` = Country list ;<br />
@@ -829,14 +831,14 @@ str(mortal_allyears_clust)
 * 2 Clusters
 
 ```{r}
-two_clust <- ggplot(mortal_allyears_clust, aes(-PC1,-PC2)) +
-  geom_hline(aes(yintercept=0), size=.2, alpha = 0.8, linetype = 2) + 
-  geom_vline(aes(xintercept=0), size=.2, alpha = 0.8, linetype = 2)+
-  geom_point(aes(col = clust2, pch = Continent))+
-  theme_classic() +
- transition_time(year,range = c(2005,2015))
-
-anim_save("2clust.gif", two_clust)
+# two_clust <- ggplot(mortal_allyears_clust, aes(-PC1,-PC2)) +
+#   geom_hline(aes(yintercept=0), size=.2, alpha = 0.8, linetype = 2) + 
+#   geom_vline(aes(xintercept=0), size=.2, alpha = 0.8, linetype = 2)+
+#   geom_point(aes(col = clust2, pch = Continent))+
+#   theme_classic() +
+#  transition_time(year,range = c(2005,2015))
+# 
+# anim_save("2clust.gif", two_clust)
 ```
 
 ![](2clust.gif)
@@ -844,14 +846,14 @@ anim_save("2clust.gif", two_clust)
 Some countries are moving from cluster 1 to cluster 2.  
 
 ```{r}
- three_clust <- ggplot(mortal_allyears_clust, aes(PC1,PC2)) +
-  geom_hline(aes(yintercept=0), size=.2, alpha = 0.8, linetype = 2) + 
-  geom_vline(aes(xintercept=0), size=.2, alpha = 0.8, linetype = 2) +
-  geom_point(aes(col = clust3, pch = Continent))+
-  theme_classic() +
-  transition_time(year,range = c(2005,2015))
-
-anim_save("3clust.gif", three_clust)
+#  three_clust <- ggplot(mortal_allyears_clust, aes(PC1,PC2)) +
+#   geom_hline(aes(yintercept=0), size=.2, alpha = 0.8, linetype = 2) + 
+#   geom_vline(aes(xintercept=0), size=.2, alpha = 0.8, linetype = 2) +
+#   geom_point(aes(col = clust3, pch = Continent))+
+#   theme_classic() +
+#   transition_time(year,range = c(2005,2015))
+# 
+# anim_save("3clust.gif", three_clust)
 
 ```
 ![](3clust.gif)
