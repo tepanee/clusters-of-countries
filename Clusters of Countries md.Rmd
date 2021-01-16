@@ -547,6 +547,7 @@ mortal_pca$eig %>%
 ```{r}
 fviz_screeplot(mortal_pca)
 ```
+
 <br />
 
 The dimension 1 contains 80% of information and dimension 2 contains 12% information. The total is arround 92% of information.

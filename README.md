@@ -1,6 +1,6 @@
 
 
-# Clusters of Countries {.tabset}
+# Clusters of Countries
 
 ## Data Used
 The data used is `Population Growth, Fertility and Mortality Indicators.csv`, tells about the number of some variables related to population fertility and mortality of each country around the world.
@@ -1870,7 +1870,9 @@ But if we divide the data into three clusters, the composition of each cluster w
 </tbody>
 </table>
 <br />
+
 ![](Clusters-of-Countries-md_files/figure-html/unnamed-chunk-30-1.png)<!-- -->
+
 <br />
 
 The dimension 1 contains 80% of information and dimension 2 contains 12% information. The total is arround 92% of information.
