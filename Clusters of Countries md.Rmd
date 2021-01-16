@@ -239,7 +239,7 @@ mortal_lastyears %>%
 <br />
 Some rows cannot be defined by its continent and all of them are not even a country actually. They are just regions or certain areas of the continent. 
 
-Our observations are countries so we wil just eliminate rows that represent some areas or regions.
+Our observations are countries so we will just eliminate rows that represent some areas or regions.
 
 ```{r}
 mortal_lastyears <- mortal_lastyears %>% 
@@ -248,8 +248,9 @@ mortal_lastyears <- mortal_lastyears %>%
 mortal_lastyears %>% 
   filter(Continent == "?") %>% 
   select(Country, Continent) %>% 
-  data.table() %>% 
-  kable() %>% 
+  kbl() %>% 
+  # data.table() %>% 
+  kable_paper() %>% 
   scroll_box(width = "100%", height = "200px")
 
 mortal_lastyears <- mortal_lastyears %>% 

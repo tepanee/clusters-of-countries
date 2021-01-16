@@ -383,9 +383,9 @@ I think by giving the `Continent` column, we're going to have some more insights
 <br />
 Some rows cannot be defined by its continent and all of them are not even a country actually. They are just regions or certain areas of the continent. 
 
-Our observations are countries so we wil just eliminate rows that represent some areas or regions.
+Our observations are countries so we will just eliminate rows that represent some areas or regions.
 
-<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; "><table>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; "><table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;'>
  <thead>
   <tr>
    <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"> Country </th>
