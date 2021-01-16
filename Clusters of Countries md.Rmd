@@ -165,8 +165,11 @@ na_check %>%
 
 ```
 There are so many NAs in the data, it means that not all country listed have the data we need.
+
 <br />
+
 * We're going to replace the NAs to the average value of each variable/indicator.
+
 ```{r}
 # Assigning the average value of each variables
 life.exp.both.avg <- mean(mortal_lastyears$life.exp.both,na.rm = T)
@@ -191,7 +194,9 @@ head(mortal_lastyears) %>%
   data.table() %>% 
   kable()
 ```
+
 <br />
+
 There is an odd thing on the data as we replace the NA with the average number of each column. There are some rows/countries which have no observation value or only have 1 or 2 value for their indicator and we have filled them with the average values and it's not supposed to be like that. We supposed to eliminate them.
 
 * eliminating some rows
@@ -259,7 +264,10 @@ mortal_lastyears <- mortal_lastyears %>%
 
 ```
 
+<br />
+
 * We better assign the `Country` as rownames instead.
+
 ```{r}
 mortal_lastyears <- column_to_rownames(mortal_lastyears,"Country")
 
@@ -267,6 +275,7 @@ data.table(head(mortal_lastyears)) %>%
   kable()
 ```
 <br />
+
 Now the data is ready to be proceed.
 
 
@@ -342,6 +351,7 @@ ggsave("html_plot/g8.png", plot = g8,width = 8, height=5)
 ![](html_plot/g8.png)
 
 <br />
+
 * Africa dominates the low life expectantion area but Europe are mostly on the high area of life expectancy . The rest are spread from the middle to the high.
 
 * Usualy the countries which infant mortality is high have less life expectantion.  The infants die and the life expectantion is lower than other countries, Africa dominates this area and Europe is on the other side.
@@ -390,6 +400,7 @@ ggsave("html_plot/g3.png", plot = g3,width = 8, height = 5)
 
 
 <br />
+
 * Africa dominates the area which total fertility rate is high, means that Africans are "productive".
 
 * it's kinda make sense countries with low fertility rate have low infant mortality number.
@@ -424,6 +435,7 @@ ggsave("html_plot/g5.png", plot = g5,width = 8, height = 5)
 ![](html_plot/g5.png)
 
 <br />
+
 * Europe has low infant mortality number but also low population increase which is rational i think.
 
 * Most African countries  and some Asian country have high pop increase and high infant mortality, it's not really good though, it seems like they produce babies as much as possible but can't really keep them alive until adult. 
@@ -463,7 +475,9 @@ wss <- function(data, maxCluster = 9) {
 
 wss(mortal_lastyears_scaled)
 ```
+
 <br />
+
 The elbow method shows that the optimum K value is 2. But i think we should try 3 as well since 2 clusters will not give us much information.
 
 
@@ -534,6 +548,7 @@ mortal_pca$eig %>%
 fviz_screeplot(mortal_pca)
 ```
 <br />
+
 The dimension 1 contains 80% of information and dimension 2 contains 12% information. The total is arround 92% of information.
 
 
@@ -809,10 +824,10 @@ mortal_allyears <- merge(country_cluster,mortal_allyears,by = "Country")
 ```{r}
 
 #replacing NAs with avg value
-
-mortal_allyears %>% 
-  is.na() %>% 
-  colSums()
+# 
+# mortal_allyears %>% 
+#   is.na() %>% 
+#   colSums()
 
 life.exp.both.avg.2 <- mean(mortal_allyears$life.exp.both,na.rm = T)
 life.exp.male.avg.2 <- mean(mortal_allyears$life.exp.male, na.rm = T)
@@ -830,9 +845,9 @@ mortal_allyears <- mortal_allyears %>%
          pop.increase = replace_na(pop.increase,pop.increase.avg.2),
          tot.fertil.rate = replace_na(tot.fertil.rate,tot.fertil.rate.avg.2))
 
-mortal_allyears %>% 
-  is.na() %>% 
-  colSums()
+# mortal_allyears %>% 
+#   is.na() %>% 
+#   colSums()
 ```
 ```{r}
 #eliminating some rows
@@ -848,7 +863,7 @@ mortal_allyears <- cbind(mortal_allyears, cb2)
 mortal_allyears <- mortal_allyears %>% 
   filter(cb2 == F)
 mortal_allyears <-  mortal_allyears[,-11]
-str(mortal_allyears)
+# str(mortal_allyears)
 ```
 
 <br />
@@ -858,8 +873,8 @@ str(mortal_allyears)
 
 ```{r}
 mortal_allyears_scaled <- scale(mortal_allyears[,-c(1,2,3,4,10)])
-summary(mortal_allyears_scaled)
-summary(mortal_lastyears_scaled)
+# summary(mortal_allyears_scaled)
+# summary(mortal_lastyears_scaled)
 ```
 
 ```{r}

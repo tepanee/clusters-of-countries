@@ -230,8 +230,11 @@ Assume that we are going to classify countries listed based on the indicators co
 </tbody>
 </table>
 There are so many NAs in the data, it means that not all country listed have the data we need.
+
 <br />
+
 * We're going to replace the NAs to the average value of each variable/indicator.
+
 <table>
  <thead>
   <tr>
@@ -322,7 +325,9 @@ There are so many NAs in the data, it means that not all country listed have the
   </tr>
 </tbody>
 </table>
+
 <br />
+
 There is an odd thing on the data as we replace the NA with the average number of each column. There are some rows/countries which have no observation value or only have 1 or 2 value for their indicator and we have filled them with the average values and it's not supposed to be like that. We supposed to eliminate them.
 
 * eliminating some rows
@@ -524,7 +529,10 @@ Our observations are countries so we will just eliminate rows that represent som
 </tbody>
 </table></div>
 
+<br />
+
 * We better assign the `Country` as rownames instead.
+
 <table>
  <thead>
   <tr>
@@ -602,6 +610,7 @@ Our observations are countries so we will just eliminate rows that represent som
 </tbody>
 </table>
 <br />
+
 Now the data is ready to be proceed.
 
 
@@ -638,6 +647,7 @@ From the plot above we can conclude that :
 ![](html_plot/g8.png)
 
 <br />
+
 * Africa dominates the low life expectantion area but Europe are mostly on the high area of life expectancy . The rest are spread from the middle to the high.
 
 * Usualy the countries which infant mortality is high have less life expectantion.  The infants die and the life expectantion is lower than other countries, Africa dominates this area and Europe is on the other side.
@@ -659,6 +669,7 @@ From the plot above we can conclude that :
 
 
 <br />
+
 * Africa dominates the area which total fertility rate is high, means that Africans are "productive".
 
 * it's kinda make sense countries with low fertility rate have low infant mortality number.
@@ -676,6 +687,7 @@ From the plot above we can conclude that :
 ![](html_plot/g5.png)
 
 <br />
+
 * Europe has low infant mortality number but also low population increase which is rational i think.
 
 * Most African countries  and some Asian country have high pop increase and high infant mortality, it's not really good though, it seems like they produce babies as much as possible but can't really keep them alive until adult. 
@@ -730,7 +742,9 @@ Scaled data is needed to perform data clustering.
 
 ## Optimal K value
 ![](Clusters-of-Countries-md_files/figure-html/unnamed-chunk-23-1.png)<!-- -->
+
 <br />
+
 The elbow method shows that the optimum K value is 2. But i think we should try 3 as well since 2 clusters will not give us much information.
 
 
@@ -1867,6 +1881,7 @@ But if we divide the data into three clusters, the composition of each cluster w
 <br />
 ![](Clusters-of-Countries-md_files/figure-html/unnamed-chunk-30-1.png)<!-- -->
 <br />
+
 The dimension 1 contains 80% of information and dimension 2 contains 12% information. The total is arround 92% of information.
 
 
@@ -1981,41 +1996,7 @@ So we're going to see the animated plot of each country of each cluster from 200
 
 
 
-```
-##                  Country                   clust2                   clust3 
-##                        0                        0                        0 
-##                     year                 inf.mort            life.exp.both 
-##                        0                       17                       16 
-## maternal.mortality.ratio             pop.increase          tot.fertil.rate 
-##                       74                        5                        5 
-##                Continent 
-##                        0
-```
 
-```
-##                  Country                   clust2                   clust3 
-##                        0                        0                        0 
-##                     year                 inf.mort            life.exp.both 
-##                        0                        0                        0 
-## maternal.mortality.ratio             pop.increase          tot.fertil.rate 
-##                        0                        0                        0 
-##                Continent 
-##                        0
-```
-
-```
-## 'data.frame':	541 obs. of  10 variables:
-##  $ Country                 : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Albania" ...
-##  $ clust2                  : Factor w/ 2 levels "1","2": 2 2 2 1 1 1 1 1 1 2 ...
-##  $ clust3                  : Factor w/ 3 levels "1","2","3": 1 1 1 2 2 2 3 3 3 1 ...
-##  $ year                    : chr  "2005" "2010" "2015" "2005" ...
-##  $ inf.mort                : num  89.5 76.7 68.6 21.1 16.8 ...
-##  $ life.exp.both           : num  56.9 60 62.3 74.8 75.6 77.7 71.5 73.9 75.3 50 ...
-##  $ maternal.mortality.ratio: num  821 584 396 30 30 29 148 147 140 705 ...
-##  $ pop.increase            : num  4.4 2.8 3.2 -0.3 -0.9 -0.1 1.3 1.6 2 3.5 ...
-##  $ tot.fertil.rate         : num  7.2 6.4 5.3 1.9 1.6 1.7 2.4 2.7 3 6.6 ...
-##  $ Continent               : Factor w/ 5 levels "Africa","Americas",..: 3 3 3 4 4 4 1 1 1 1 ...
-```
 
 <br />
 
@@ -2023,39 +2004,6 @@ So we're going to see the animated plot of each country of each cluster from 200
 
 
 
-```
-##     inf.mort       life.exp.both     maternal.mortality.ratio
-##  Min.   :-1.0953   Min.   :-2.7946   Min.   :-0.7531         
-##  1st Qu.:-0.8480   1st Qu.:-0.6549   1st Qu.:-0.7024         
-##  Median :-0.3681   Median : 0.2701   Median :-0.5165         
-##  Mean   : 0.0000   Mean   : 0.0000   Mean   : 0.0000         
-##  3rd Qu.: 0.7282   3rd Qu.: 0.7158   3rd Qu.: 0.4170         
-##  Max.   : 2.8433   Max.   : 1.5739   Max.   : 3.2301         
-##   pop.increase      tot.fertil.rate  
-##  Min.   :-2.50753   Min.   :-1.2305  
-##  1st Qu.:-0.66838   1st Qu.:-0.7849  
-##  Median :-0.07722   Median :-0.3393  
-##  Mean   : 0.00000   Mean   : 0.0000  
-##  3rd Qu.: 0.57962   3rd Qu.: 0.6791  
-##  Max.   : 8.46171   Max.   : 2.9707
-```
-
-```
-##     inf.mort       life.exp.both     maternal.mortality.ratio  pop.increase    
-##  Min.   :-1.0369   Min.   :-2.6949   Min.   :-0.7804          Min.   :-2.7139  
-##  1st Qu.:-0.8089   1st Qu.:-0.6741   1st Qu.:-0.7142          1st Qu.:-0.7343  
-##  Median :-0.3700   Median : 0.2131   Median :-0.4225          Median :-0.0744  
-##  Mean   : 0.0000   Mean   : 0.0000   Mean   : 0.0000          Mean   : 0.0000  
-##  3rd Qu.: 0.7055   3rd Qu.: 0.6937   3rd Qu.: 0.1243          3rd Qu.: 0.6588  
-##  Max.   : 2.9556   Max.   : 1.4947   Max.   : 3.5298          Max.   : 3.8116  
-##  tot.fertil.rate  
-##  Min.   :-1.1726  
-##  1st Qu.:-0.7470  
-##  Median :-0.3215  
-##  Mean   : 0.0000  
-##  3rd Qu.: 0.6359  
-##  Max.   : 3.2245
-```
 
 
 
