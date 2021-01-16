@@ -1,12 +1,3 @@
----
-title: "Clusters of Countries"
-author: "Thiffany Pratama"
-date: "8/22/2019"
-output: 
-  html_document:
-    keep_md: true
----
-
 
 
 # Clusters of Countries {.tabset}
@@ -46,9 +37,8 @@ Assume that we are going to classify countries listed based on the indicators co
 4. Biplotting and Interpretation.
 
 
-# Libraries Importing and Data Preparation
+# Data Preparation
 
-## Libraries Used
 
 
 
@@ -386,11 +376,11 @@ Some rows cannot be defined by its continent and all of them are not even a coun
 
 Our observations are countries so we wil just eliminate rows that represent some areas or regions.
 
-<table>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; "><table>
  <thead>
   <tr>
-   <th style="text-align:left;"> Country </th>
-   <th style="text-align:left;"> Continent </th>
+   <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"> Country </th>
+   <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"> Continent </th>
   </tr>
  </thead>
 <tbody>
@@ -523,7 +513,7 @@ Our observations are countries so we wil just eliminate rows that represent some
    <td style="text-align:left;"> ? </td>
   </tr>
 </tbody>
-</table>
+</table></div>
 
 * We better assign the `Country` as rownames instead.
 <table>

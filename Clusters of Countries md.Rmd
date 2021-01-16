@@ -51,11 +51,12 @@ Assume that we are going to classify countries listed based on the indicators co
 4. Biplotting and Interpretation.
 
 
-# Libraries Importing and Data Preparation
+# Data Preparation
 
-## Libraries Used
 
 ```{r, warning=FALSE, message=FALSE}
+## Libraries Used
+
 library(tidyverse) # Data manipulating
 library(FactoMineR) # performing PCA
 library(factoextra) # Creating some plot (biplot)
@@ -248,7 +249,8 @@ mortal_lastyears %>%
   filter(Continent == "?") %>% 
   select(Country, Continent) %>% 
   data.table() %>% 
-  kable()
+  kable() %>% 
+  scroll_box(width = "100%", height = "200px")
 
 mortal_lastyears <- mortal_lastyears %>% 
   filter(Continent != "?") %>% 
